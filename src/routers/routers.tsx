@@ -1,11 +1,6 @@
-import { RouteObject } from "react-router-dom";
-import App from "../components/App/App.tsx";
+import { createBrowserRouter } from "react-router-dom";
+import appRoutes from "./routes";
 
-const appRouter: RouteObject[] = [
-  {
-    path: "/",
-    element: <App />,
-  },
-];
+const appRouter = createBrowserRouter(appRoutes);
 
 export default appRouter;
