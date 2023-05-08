@@ -9,8 +9,8 @@ import appRouter from "./routers/routers";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={appRouter} />
     <Provider store={store}>
+      <RouterProvider router={appRouter} />
       <App />
     </Provider>
   </React.StrictMode>
