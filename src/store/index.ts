@@ -3,9 +3,11 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { challengesReducer } from "./challenges/challengesSlice";
+import { projectsReducer } from "./projects/projectsSlice";
 
 const rootReducer = combineReducers({
   challengesStore: challengesReducer,
+  projectsStore: projectsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {

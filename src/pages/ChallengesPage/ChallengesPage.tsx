@@ -28,7 +28,7 @@ const ChallengesPage = (): JSX.Element => {
 
   return (
     <>
-      <h2>Challenges page</h2>
+      <h2>Challenges</h2>
       <ChallengesList challenges={challenges} />
     </>
   );

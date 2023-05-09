@@ -13,7 +13,7 @@ const challengesSlice = createSlice({
     loadChallenges: (
       currentChallenges,
       action: PayloadAction<ChallengeStructure[]>
-    ) => ({
+    ): ChallengesStateStructure => ({
       ...currentChallenges,
       challenges: [...action.payload],
     }),
