@@ -26,7 +26,7 @@ describe("Given a ChallengesList component", () => {
 
       challengesMock.forEach((challenge) => {
         const link = screen.getByRole("link", {
-          name: challenge.name,
+          name: challenge.number,
         });
 
         expect(link).toBeInTheDocument();

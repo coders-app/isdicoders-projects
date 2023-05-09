@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   a {
-    color: inherit;
+    color: ${(props) => props.theme.colors.primary};
     text-decoration: none;
   }
   `;
