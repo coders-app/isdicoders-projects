@@ -2,13 +2,10 @@ import { Factory } from "fishery";
 import { faker } from "@faker-js/faker";
 import { ChallengeStructure } from "../types";
 
-const challengeFactory = Factory.define<ChallengeStructure>(() => ({
+const challengeFactory = Factory.define<ChallengeStructure>(({ sequence }) => ({
   id: faker.database.mongodbObjectId(),
   name: faker.random.word(),
-  week: faker.datatype.number({
-    min: 1,
-    max: 9,
-  }),
+  week: sequence,
   number: faker.random.numeric(),
 }));
 

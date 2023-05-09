@@ -1,28 +1,17 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import ChallengeCard from "./ChallengeCard";
 import { getChallengeMock } from "../../mocks/challengesMocks";
-import { Provider } from "react-redux";
-import { store } from "../../store";
-import { RouterProvider } from "react-router-dom";
-import { createTestRouter } from "../../routers/routers";
+import { renderSingleRoute } from "../../testUtils/testUtils";
 
 describe("Given a ChallengeCard component", () => {
   describe("When it receives a challenge", () => {
     test("Then it should show a link with the challenge's name", () => {
       const challengeMock = getChallengeMock();
 
-      const testRouter = createTestRouter(
-        <ChallengeCard challenge={challengeMock} />
-      );
-
-      render(
-        <Provider store={store}>
-          <RouterProvider router={testRouter} />
-        </Provider>
-      );
+      renderSingleRoute(<ChallengeCard challenge={challengeMock} />);
 
       const challengeLink = screen.getByRole("link", {
-        name: challengeMock.name,
+        name: challengeMock.number,
       });
 
       expect(challengeLink).toBeInTheDocument();

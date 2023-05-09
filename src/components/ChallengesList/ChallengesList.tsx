@@ -1,5 +1,6 @@
 import { ChallengeStructure } from "../../types";
 import ChallengeCard from "../ChallengeCard/ChallengeCard";
+import ChallengesListStyled from "./ChallengesListStyled";
 
 interface ChallengesListProps {
   challenges: ChallengeStructure[];
@@ -22,11 +23,11 @@ const ChallengesList = ({ challenges }: ChallengesListProps): JSX.Element => {
     });
 
   return (
-    <ul>
+    <ChallengesListStyled>
       {challengesPerWeek.map(({ weekName, challenges }) => (
-        <li key={weekName}>
-          <h3>{weekName}</h3>
-          <ul>
+        <li className="week" key={weekName}>
+          <h3 className="week__name">{weekName}</h3>
+          <ul className="challenges">
             {challenges.map((challenge) => (
               <li key={challenge.id}>
                 <ChallengeCard challenge={challenge} />
@@ -35,7 +36,7 @@ const ChallengesList = ({ challenges }: ChallengesListProps): JSX.Element => {
           </ul>
         </li>
       ))}
-    </ul>
+    </ChallengesListStyled>
   );
 };
 
