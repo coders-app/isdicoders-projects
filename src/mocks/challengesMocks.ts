@@ -13,3 +13,5 @@ export const getChallengeMock = (challengeData?: Partial<ChallengeStructure>) =>
   challengeFactory.build(challengeData);
 export const getChallengesMock = (number = 2) =>
   challengeFactory.buildList(number);
+
+export const challengesMock = getChallengesMock();
