@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { ChallengesRepository } from "../repositories/types";
-import { ChallengeStructure } from "../types";
+import { ChallengeStructure, ProjectStructure } from "../types";
 
 const useChallengesApi = (challengesRepository: ChallengesRepository) => {
   const getChallenges = useCallback(async (): Promise<ChallengeStructure[]> => {
@@ -9,7 +9,29 @@ const useChallengesApi = (challengesRepository: ChallengesRepository) => {
     return challenges;
   }, [challengesRepository]);
 
-  return { getChallenges };
+  const getChallengeById = useCallback(
+    async (challengeId: string): Promise<ChallengeStructure> => {
+      const challenge = await challengesRepository.getChallengeById(
+        challengeId
+      );
+
+      return challenge;
+    },
+    [challengesRepository]
+  );
+
+  const getProjectsByChallengeId = useCallback(
+    async (challengeId: string): Promise<ProjectStructure[]> => {
+      const projects = await challengesRepository.getProjectsByChallengeId(
+        challengeId
+      );
+
+      return projects;
+    },
+    [challengesRepository]
+  );
+
+  return { getChallenges, getChallengeById, getProjectsByChallengeId };
 };
 
 export default useChallengesApi;

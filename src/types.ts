@@ -4,3 +4,8 @@ export interface ChallengeStructure {
   week: number;
   number: string;
 }
+
+export interface ProjectStructure {
+  _id: string;
+  name: string;
+}
