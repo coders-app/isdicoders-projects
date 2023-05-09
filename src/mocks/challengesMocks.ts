@@ -5,7 +5,10 @@ import { ChallengeStructure } from "../types";
 const challengeFactory = Factory.define<ChallengeStructure>(() => ({
   id: faker.database.mongodbObjectId(),
   name: faker.random.word(),
-  week: faker.datatype.number(),
+  week: faker.datatype.number({
+    min: 1,
+    max: 9,
+  }),
   number: faker.random.numeric(),
 }));
 
