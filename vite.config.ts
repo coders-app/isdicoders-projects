@@ -23,6 +23,7 @@ export default defineConfig({
         "src/components/App",
         "src/components/Layout",
         "src/pages/**/*.tsx",
+        "src/styles/**",
       ],
     },
   },
